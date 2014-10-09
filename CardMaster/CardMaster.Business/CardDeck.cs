@@ -6,13 +6,15 @@ namespace CardMaster.Business
 {
     public class CardDeck
     {
+        private const int CardDeckCapacity = 52;
+
         private readonly IDeckShuffler _deckShuffler;
 
         #region Private Members
 
         private IList<Card> CreateCardDeck()
         {
-            var cards = new List<Card>();
+            var cards = new List<Card>(CardDeckCapacity);
 
             foreach (var cardSuite in Enum.GetNames(typeof(CardSuite)))
             {
@@ -28,26 +30,26 @@ namespace CardMaster.Business
 
         #endregion
 
-
         #region Public Members
 
-        public CardDeck() : this(new DefaultDeckShuffler())
-        {
-            Cards = CreateCardDeck();
-        }
+        public IList<Card> Cards { get; set; }
 
         public CardDeck(IDeckShuffler deckShuffler)
         {
             _deckShuffler = deckShuffler;
+            Cards = CreateCardDeck();
         }
 
-        public IList<Card> Cards { get; set; }
-
-        #endregion
+        public CardDeck() : this(new DefaultDeckShuffler()) 
+        {
+        }
 
         public void Shuffle()
         {
-           Cards = _deckShuffler.Shuffle(Cards);
+            Cards = _deckShuffler.Shuffle(Cards);
         }
+
+        #endregion
+
     }
 }
