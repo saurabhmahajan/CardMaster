@@ -19,8 +19,16 @@ namespace CardMaster.Business.Tests
                 new Card(CardSuite.Spade, CardFace.Ace),
             };
             
+            List<CardSuite> cardSuiteByPriority = new List<CardSuite>
+            {
+                CardSuite.Diamond,
+                CardSuite.Heart,
+                CardSuite.Club,
+                CardSuite.Spade
+            };
+            
             //Act
-            CardRule cardRule = new CardRule();
+            CardRule cardRule = new CardRule(cardSuiteByPriority);
             ICard winningCard = cardRule.GetWinningCard(cards);
 
             //Assert
@@ -40,8 +48,16 @@ namespace CardMaster.Business.Tests
                 new Card(CardSuite.Diamond, CardFace.Queen),
             };
 
+            List<CardSuite> cardSuiteByPriority = new List<CardSuite>
+            {
+                CardSuite.Diamond,
+                CardSuite.Heart,
+                CardSuite.Club,
+                CardSuite.Spade
+            };
+
             //Act
-            CardRule cardRule = new CardRule();
+            CardRule cardRule = new CardRule(cardSuiteByPriority);
             ICard winningCard = cardRule.GetWinningCard(cards);
 
             //Assert
@@ -61,8 +77,16 @@ namespace CardMaster.Business.Tests
                 new Card(CardSuite.Spade, CardFace.King),
             };
 
+            List<CardSuite> cardSuiteByPriority = new List<CardSuite>
+            {
+                CardSuite.Diamond,
+                CardSuite.Heart,
+                CardSuite.Club,
+                CardSuite.Spade
+            };
+
             //Act
-            CardRule cardRule = new CardRule();
+            CardRule cardRule = new CardRule(cardSuiteByPriority);
             ICard winningCard = cardRule.GetWinningCard(cards);
 
             //Assert
@@ -82,8 +106,16 @@ namespace CardMaster.Business.Tests
                 new Card(CardSuite.Spade, CardFace.King),
             };
 
+            List<CardSuite> cardSuiteByPriority = new List<CardSuite>
+            {
+                CardSuite.Diamond,
+                CardSuite.Heart,
+                CardSuite.Club,
+                CardSuite.Spade
+            };
+
             //Act
-            CardRule cardRule = new CardRule();
+            CardRule cardRule = new CardRule(cardSuiteByPriority);
             ICard winningCard = cardRule.GetWinningCard(cards);
 
             //Assert
@@ -103,8 +135,16 @@ namespace CardMaster.Business.Tests
                 new Card(CardSuite.Spade, CardFace.Jack),
             };
 
+            List<CardSuite> cardSuiteByPriority = new List<CardSuite>
+            {
+                CardSuite.Diamond,
+                CardSuite.Heart,
+                CardSuite.Club,
+                CardSuite.Spade
+            };
+
             //Act
-            CardRule cardRule = new CardRule();
+            CardRule cardRule = new CardRule(cardSuiteByPriority);
             ICard winningCard = cardRule.GetWinningCard(cards);
 
             //Assert
