@@ -39,7 +39,7 @@ namespace CardMaster.Business.Tests
             CardDeck cardDeck = new CardDeck();
 
             //Act
-            IEnumerable<Card> hearts = cardDeck.Cards.Where(c => c.Suite == CardSuite.Heart).Select(c => c);
+            IEnumerable<ICard> hearts = cardDeck.Cards.Where(c => c.Suite == CardSuite.Heart).Select(c => c);
 
             //Assert
             hearts.Count().Should().Be(13);
@@ -52,7 +52,7 @@ namespace CardMaster.Business.Tests
             CardDeck cardDeck = new CardDeck();
 
             //Act
-            IEnumerable<Card> clubs = cardDeck.Cards.Where(c => c.Suite == CardSuite.Club).Select(c => c);
+            IEnumerable<ICard> clubs = cardDeck.Cards.Where(c => c.Suite == CardSuite.Club).Select(c => c);
 
             //Assert
             clubs.Count().Should().Be(13);
@@ -65,7 +65,7 @@ namespace CardMaster.Business.Tests
             CardDeck cardDeck = new CardDeck();
 
             //Act
-            IEnumerable<Card> diamonds = cardDeck.Cards.Where(c => c.Suite == CardSuite.Diamond).Select(c => c);
+            IEnumerable<ICard> diamonds = cardDeck.Cards.Where(c => c.Suite == CardSuite.Diamond).Select(c => c);
 
             //Assert
             diamonds.Count().Should().Be(13);
@@ -78,7 +78,7 @@ namespace CardMaster.Business.Tests
             CardDeck cardDeck = new CardDeck();
 
             //Act
-            IEnumerable<Card> spades = cardDeck.Cards.Where(c => c.Suite == CardSuite.Spade).Select(c => c);
+            IEnumerable<ICard> spades = cardDeck.Cards.Where(c => c.Suite == CardSuite.Spade).Select(c => c);
 
             //Assert
             spades.Count().Should().Be(13);
@@ -88,7 +88,7 @@ namespace CardMaster.Business.Tests
         public void CardDeck_when_shuffeled_should_not_keep_3_consecutive_card_of_same_suite_together()
         {
             //Arrange
-            Card lastToLastCard = null, lastCard = null;
+            ICard lastToLastCard = null, lastCard = null;
             bool areThreeCardsofSameSuiteInSquence = false;
             CardDeck cardDeck = new CardDeck();
 
@@ -96,7 +96,7 @@ namespace CardMaster.Business.Tests
             cardDeck.Shuffle();
 
             //Assert
-            foreach (Card card in cardDeck.Cards)
+            foreach (ICard card in cardDeck.Cards)
             {
                 if (lastToLastCard != null && lastCard != null && card != null)
                 {

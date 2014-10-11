@@ -1,6 +1,6 @@
 ﻿namespace CardMaster.Business
 {
-    public class Card
+    public class Card : ICard
     {
         public Card(CardSuite suite, CardFace face)
         {

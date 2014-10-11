@@ -8,11 +8,11 @@ namespace CardMaster.Business
     {
         private const int MaxCardsInDeck = 52;
 
-        public IList<Card> Shuffle(IList<Card> cards)
+        public IList<ICard> Shuffle(IList<ICard> cards)
         {
             Random random = new Random();
          
-            Card[] temporaryCards = new Card[cards.Count];
+            ICard[] temporaryCards = new ICard[cards.Count];
 
             foreach (var card in cards)
             {
@@ -31,7 +31,7 @@ namespace CardMaster.Business
             return temporaryCards.ToList();
         }
 
-        private int GetNextValidEmptyPosition(Card[] temporaryCards, Random random)
+        private int GetNextValidEmptyPosition(ICard[] temporaryCards, Random random)
         {
             if (temporaryCards.Count(c => c == null) < 2) // No fun finding an empty space randomly if empty spaces are less than 2
             {
@@ -48,7 +48,7 @@ namespace CardMaster.Business
             return nextEmptyPosition;
         }
 
-        private bool IsCardAtGivenPostionEmpty(Card[] deck, int position)
+        private bool IsCardAtGivenPostionEmpty(ICard[] deck, int position)
         {
             return deck[position] == null;
         }

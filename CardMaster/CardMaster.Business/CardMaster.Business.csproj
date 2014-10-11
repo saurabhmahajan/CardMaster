@@ -42,8 +42,11 @@
     <Compile Include="Card.cs" />
     <Compile Include="CardDeck.cs" />
     <Compile Include="CardFace.cs" />
+    <Compile Include="CardNotFoundException.cs" />
+    <Compile Include="CardRule.cs" />
     <Compile Include="CardSuite.cs" />
     <Compile Include="DefaultDeckShuffler.cs" />
+    <Compile Include="ICard.cs" />
     <Compile Include="IDeckShuffler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

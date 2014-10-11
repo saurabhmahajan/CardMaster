@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace CardMaster.Business
 {
@@ -12,9 +11,9 @@ namespace CardMaster.Business
 
         #region Private Members
 
-        private IList<Card> CreateCardDeck()
+        private IList<ICard> CreateCardDeck()
         {
-            var cards = new List<Card>(CardDeckCapacity);
+            var cards = new List<ICard>(CardDeckCapacity);
 
             foreach (var cardSuite in Enum.GetNames(typeof(CardSuite)))
             {
@@ -32,7 +31,7 @@ namespace CardMaster.Business
 
         #region Public Members
 
-        public IList<Card> Cards { get; set; }
+        public IList<ICard> Cards { get; set; }
 
         public CardDeck(IDeckShuffler deckShuffler)
         {
