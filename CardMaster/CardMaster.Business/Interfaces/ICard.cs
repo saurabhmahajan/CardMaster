@@ -1,4 +1,6 @@
-﻿namespace CardMaster.Business.Interfaces
+﻿using CardMaster.Business.Enums;
+
+namespace CardMaster.Business.Interfaces
 {
     public interface ICard
     {

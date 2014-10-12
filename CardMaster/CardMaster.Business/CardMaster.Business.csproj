@@ -41,15 +41,15 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="CardDeck.cs" />
-    <Compile Include="CardFace.cs" />
+    <Compile Include="Enums\CardFace.cs" />
     <Compile Include="CardRule.cs" />
-    <Compile Include="CardSuite.cs" />
+    <Compile Include="Enums\CardSuite.cs" />
     <Compile Include="DefaultDeckShuffler.cs" />
     <Compile Include="Exceptions\CardNotFoundException.cs" />
     <Compile Include="Exceptions\GameInProgressException.cs" />
     <Compile Include="Exceptions\NotEnoughPlayersException.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="GameStatus.cs" />
+    <Compile Include="Enums\GameStatus.cs" />
     <Compile Include="Interfaces\ICard.cs" />
     <Compile Include="Interfaces\ICardPlayer.cs" />
     <Compile Include="Interfaces\IDeckShuffler.cs" />

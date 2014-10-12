@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CardMaster.Business.Enums;
 using CardMaster.Business.Exceptions;
 using FluentAssertions;
 using NUnit.Framework;

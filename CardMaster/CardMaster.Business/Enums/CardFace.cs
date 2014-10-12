@@ -1,4 +1,4 @@
-namespace CardMaster.Business
+namespace CardMaster.Business.Enums
 {
     public enum CardFace
     {

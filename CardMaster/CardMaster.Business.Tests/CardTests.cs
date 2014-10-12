@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using CardMaster.Business.Enums;
+using FluentAssertions;
 using NUnit.Framework;
 
 namespace CardMaster.Business.Tests

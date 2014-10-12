@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using CardMaster.Business.Enums;
 using CardMaster.Business.Exceptions;
 using CardMaster.Business.Interfaces;
 

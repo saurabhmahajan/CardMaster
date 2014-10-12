@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using CardMaster.Business.Enums;
 using CardMaster.Business.Exceptions;
 
 namespace CardMaster.Business
