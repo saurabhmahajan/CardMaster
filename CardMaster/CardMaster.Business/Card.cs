@@ -1,4 +1,6 @@
-﻿namespace CardMaster.Business
+﻿using CardMaster.Business.Interfaces;
+
+namespace CardMaster.Business
 {
     public class Card : ICard
     {

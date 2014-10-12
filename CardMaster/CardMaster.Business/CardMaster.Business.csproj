@@ -42,12 +42,19 @@
     <Compile Include="Card.cs" />
     <Compile Include="CardDeck.cs" />
     <Compile Include="CardFace.cs" />
-    <Compile Include="CardNotFoundException.cs" />
     <Compile Include="CardRule.cs" />
     <Compile Include="CardSuite.cs" />
     <Compile Include="DefaultDeckShuffler.cs" />
-    <Compile Include="ICard.cs" />
-    <Compile Include="IDeckShuffler.cs" />
+    <Compile Include="Exceptions\CardNotFoundException.cs" />
+    <Compile Include="Exceptions\GameInProgressException.cs" />
+    <Compile Include="Exceptions\NotEnoughPlayersException.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="GameStatus.cs" />
+    <Compile Include="Interfaces\ICard.cs" />
+    <Compile Include="Interfaces\ICardPlayer.cs" />
+    <Compile Include="Interfaces\IDeckShuffler.cs" />
+    <Compile Include="Interfaces\IPlayer.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

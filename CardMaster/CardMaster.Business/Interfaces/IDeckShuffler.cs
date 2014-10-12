@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace CardMaster.Business
+namespace CardMaster.Business.Interfaces
 {
     public interface IDeckShuffler
     {

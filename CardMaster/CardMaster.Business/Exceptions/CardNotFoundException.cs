@@ -1,6 +1,6 @@
 using System;
 
-namespace CardMaster.Business
+namespace CardMaster.Business.Exceptions
 {
     public class CardNotFoundException : Exception
     {
