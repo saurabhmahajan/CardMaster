@@ -77,21 +77,18 @@ namespace CardMaster.Business.Tests
 
             //Act
             deck.Shuffle();
-            ICard firstCard = deck.Cards[0];
-            ICard secondCard = deck.Cards[1];
-            ICard thirdCard = deck.Cards[2];
-
+         
             distributor.DistributeCards(deck, players);
 
             //Assert
-            distributor.DrawCard().Suite.Should().Be(firstCard.Suite);
-            distributor.DrawCard().Face.Should().Be(firstCard.Face);
+            //None of the cards possesed by players should be part of the deck anymore
+            ICard firstCard = distributor.DrawCard();
+            ICard secondCard = players[0].DrawCard();
+            ICard thirdCard = players[1].DrawCard();
 
-            players[0].DrawCard().Suite.Should().Be(secondCard.Suite);
-            players[0].DrawCard().Face.Should().Be(secondCard.Face);
-
-            players[1].DrawCard().Suite.Should().Be(thirdCard.Suite);
-            players[1].DrawCard().Face.Should().Be(thirdCard.Face);
+            deck.Cards.Contains(firstCard).Should().BeFalse();
+            deck.Cards.Contains(secondCard).Should().BeFalse();
+            deck.Cards.Contains(thirdCard).Should().BeFalse();
         }
     }
 }

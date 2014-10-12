@@ -29,13 +29,11 @@ namespace CardMaster.Business
 
         public void DistributeCards(CardDeck deck, List<ICardPlayer> players)
         {
-            int cardIndex = 0;
-
-            AcceptCard(deck.Cards[cardIndex++]);
+            AcceptCard(deck.GetNextCard());
 
             foreach (var player in players)
             {
-                player.AcceptCard(deck.Cards[cardIndex++]);
+                player.AcceptCard(deck.GetNextCard());
             }
         }
 

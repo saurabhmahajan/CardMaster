@@ -12,15 +12,15 @@ namespace CardMaster.Business
 
         #region Private Members
 
-        private IList<ICard> CreateCardDeck()
+        private Queue<ICard> CreateCardDeck()
         {
-            var cards = new List<ICard>(CardDeckCapacity);
+            var cards = new Queue<ICard>(CardDeckCapacity);
 
             foreach (var cardSuite in Enum.GetNames(typeof(CardSuite)))
             {
                 foreach (var cardFace in Enum.GetNames(typeof(CardFace)))
                 {
-                    cards.Add(new Card((CardSuite)Enum.Parse(typeof(CardSuite), cardSuite),
+                    cards.Enqueue(new Card((CardSuite)Enum.Parse(typeof(CardSuite), cardSuite),
                         (CardFace)Enum.Parse(typeof(CardFace), cardFace)));
                 }
             }
@@ -32,7 +32,7 @@ namespace CardMaster.Business
 
         #region Public Members
 
-        public IList<ICard> Cards { get; set; }
+        public Queue<ICard> Cards { get; private set; }
 
         public CardDeck(IDeckShuffler deckShuffler)
         {
@@ -46,10 +46,14 @@ namespace CardMaster.Business
 
         public void Shuffle()
         {
-            Cards = _deckShuffler.Shuffle(Cards);
+            Cards = new Queue<ICard>(_deckShuffler.Shuffle(Cards));
         }
 
         #endregion
 
+        public ICard GetNextCard()
+        {
+            return Cards.Dequeue();
+        }
     }
 }

@@ -9,11 +9,11 @@ namespace CardMaster.Business
     {
         private const int MaxCardsInDeck = 52;
 
-        public IList<ICard> Shuffle(IList<ICard> cards)
+        public IEnumerable<ICard> Shuffle(IEnumerable<ICard> cards)
         {
             Random random = new Random();
          
-            ICard[] temporaryCards = new ICard[cards.Count];
+            ICard[] temporaryCards = new ICard[cards.Count()];
 
             foreach (var card in cards)
             {

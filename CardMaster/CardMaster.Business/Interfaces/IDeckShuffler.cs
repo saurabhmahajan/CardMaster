@@ -4,6 +4,6 @@ namespace CardMaster.Business.Interfaces
 {
     public interface IDeckShuffler
     {
-        IList<ICard> Shuffle(IList<ICard> cards);
+        IEnumerable<ICard> Shuffle(IEnumerable<ICard> cards);
     }
 }
