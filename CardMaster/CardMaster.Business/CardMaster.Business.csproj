@@ -50,9 +50,11 @@
     <Compile Include="Exceptions\NotEnoughPlayersException.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Enums\GameStatus.cs" />
+    <Compile Include="GameSettings.cs" />
     <Compile Include="Interfaces\ICard.cs" />
     <Compile Include="Interfaces\ICardPlayer.cs" />
     <Compile Include="Interfaces\IDeckShuffler.cs" />
+    <Compile Include="Interfaces\IGameSettings.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

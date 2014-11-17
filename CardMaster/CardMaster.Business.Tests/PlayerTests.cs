@@ -70,11 +70,12 @@ namespace CardMaster.Business.Tests
 
             List<ICardPlayer> players = new List<ICardPlayer>
             {
+                new Player("Saurabh"),
                 new Player("Teju"),
                 new Player("Himani")
             };
 
-            Player distributor = new Player("Saurabh");
+            ICardPlayer distributor = players[0];
 
             //Act
             deck.Shuffle();

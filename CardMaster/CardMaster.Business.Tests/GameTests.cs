@@ -63,5 +63,33 @@ namespace CardMaster.Business.Tests
             //Assert
             action.ShouldThrow<NotEnoughPlayersException>().WithMessage("Minimum 4 players required to play the game");
         }
+
+        [Test]
+        public void Game_number_of_round_should_be_configurable()
+        {
+            //Arrange
+            Game game = new Game(ValidPlayers);
+
+            //Act
+            game.SetRounds(5);
+
+            //Assert
+            game.GetRounds().Should().Be(5);
+        }
+
+        [Test]
+        public void Game_number_of_round_should_not_allow_changes_when_game_is_progress()
+        {
+            //Arrange
+            Game game = new Game(ValidPlayers);
+
+            //Act
+            game.SetRounds(5);
+            game.Start();
+            Action action = () => game.SetRounds(2);
+            //Assert
+            game.GetRounds().Should().Be(5);
+            action.ShouldThrow<GameInProgressException>().WithMessage("Game is already in-progress");
+        }
     }
 }

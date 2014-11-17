@@ -29,8 +29,6 @@ namespace CardMaster.Business
 
         public void DistributeCards(CardDeck deck, List<ICardPlayer> players)
         {
-            AcceptCard(deck.GetNextCard());
-
             foreach (var player in players)
             {
                 player.AcceptCard(deck.GetNextCard());

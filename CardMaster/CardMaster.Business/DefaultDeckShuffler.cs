@@ -13,40 +13,40 @@ namespace CardMaster.Business
         {
             Random random = new Random();
          
-            ICard[] temporaryCards = new ICard[cards.Count()];
+            ICard[] temporaryDeck = new ICard[cards.Count()];
 
             foreach (var card in cards)
             {
-                int nextEmptyPosition = random.Next(0, MaxCardsInDeck);
+                int probableEmptyPosition = random.Next(0, MaxCardsInDeck);
 
-                bool isValidEmptyPosition = IsCardAtGivenPostionEmpty(temporaryCards, nextEmptyPosition);
+                bool isValidEmptyPosition = IsCardAtGivenPostionEmpty(temporaryDeck, probableEmptyPosition);
 
                 if (!isValidEmptyPosition)
                 {
-                    nextEmptyPosition = GetNextValidEmptyPosition(temporaryCards, random);
+                    probableEmptyPosition = GetNextValidEmptyPosition(temporaryDeck, random);
                 }
 
-                temporaryCards[nextEmptyPosition] = card;
+                temporaryDeck[probableEmptyPosition] = card;
             }
 
-            return temporaryCards.ToList();
+            return temporaryDeck.ToList();
         }
 
-        private int GetNextValidEmptyPosition(ICard[] temporaryCards, Random random)
+        private int GetNextValidEmptyPosition(ICard[] temporaryDeck, Random random)
         {
-            if (temporaryCards.Count(c => c == null) < 2) // No fun finding an empty space randomly if empty spaces are less than 2
+            if (temporaryDeck.Count(c => c == null) < 2) // No fun finding an empty space randomly if empty spaces are less than 2
             {
-                return Array.FindIndex(temporaryCards, tCard => tCard == null);
+                return Array.FindIndex(temporaryDeck, tCard => tCard == null);
             }
             
-            int nextEmptyPosition = 0;
+            int probableEmptyPosition = 0;
             
-            while (!IsCardAtGivenPostionEmpty(temporaryCards, nextEmptyPosition))
+            while (!IsCardAtGivenPostionEmpty(temporaryDeck, probableEmptyPosition))
             {
-                nextEmptyPosition = random.Next(0, MaxCardsInDeck);
+                probableEmptyPosition = random.Next(0, MaxCardsInDeck);
             }
 
-            return nextEmptyPosition;
+            return probableEmptyPosition;
         }
 
         private bool IsCardAtGivenPostionEmpty(ICard[] deck, int position)
