@@ -1,19 +1,25 @@
 using System.Collections.Generic;
+using CardMaster.Business.CardRules;
 using CardMaster.Business.Interfaces;
 
 namespace CardMaster.Business
 {
     public class GameSettings : IGameSettings
     {
-        public GameSettings(List<ICardPlayer> players, CardDeck cardDeck, int noOfRounds)
+        public GameSettings(CardDeck cardDeck, int noOfRounds, IWinningCardRule winningCardRule)
         {
             NoOfRounds = noOfRounds;
+            WinningCardRule = winningCardRule;
             CardDeck = cardDeck;
-            Players = players;
         }
 
-        public List<ICardPlayer> Players { get; private set; }
+        public void DescreaseRoundCount()
+        {
+            NoOfRounds--;
+        }
+
         public CardDeck CardDeck { get; private set; }
         public int NoOfRounds { get; private set; }
+        public IWinningCardRule WinningCardRule { get; private set; }
     }
 }

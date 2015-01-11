@@ -5,19 +5,22 @@ using CardMaster.Business.Interfaces;
 
 namespace CardMaster.Business
 {
+    /// <summary>
+    /// Desc shuffler which does not allow 3 consecutive cards of same suite.
+    /// </summary>
     public class DefaultDeckShuffler : IDeckShuffler
     {
-        private const int MaxCardsInDeck = 52;
-
-        public IEnumerable<ICard> Shuffle(IEnumerable<ICard> cards)
+        public IEnumerable<ICard> Shuffle(ICollection<ICard> deck)
         {
             Random random = new Random();
-         
-            ICard[] temporaryDeck = new ICard[cards.Count()];
+            
+            int countOfCardsInDeck = deck.Count;
 
-            foreach (var card in cards)
+            ICard[] temporaryDeck = new ICard[countOfCardsInDeck];
+
+            foreach (var card in deck)
             {
-                int probableEmptyPosition = random.Next(0, MaxCardsInDeck);
+                int probableEmptyPosition = random.Next(0, countOfCardsInDeck);
 
                 bool isValidEmptyPosition = IsCardAtGivenPostionEmpty(temporaryDeck, probableEmptyPosition);
 
@@ -34,6 +37,8 @@ namespace CardMaster.Business
 
         private int GetNextValidEmptyPosition(ICard[] temporaryDeck, Random random)
         {
+            int deckLength = temporaryDeck.Count();
+
             if (temporaryDeck.Count(c => c == null) < 2) // No fun finding an empty space randomly if empty spaces are less than 2
             {
                 return Array.FindIndex(temporaryDeck, tCard => tCard == null);
@@ -43,7 +48,7 @@ namespace CardMaster.Business
             
             while (!IsCardAtGivenPostionEmpty(temporaryDeck, probableEmptyPosition))
             {
-                probableEmptyPosition = random.Next(0, MaxCardsInDeck);
+                probableEmptyPosition = random.Next(0, deckLength);
             }
 
             return probableEmptyPosition;

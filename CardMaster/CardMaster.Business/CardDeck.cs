@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using CardMaster.Business.Enums;
 using CardMaster.Business.Interfaces;
 
@@ -47,7 +48,7 @@ namespace CardMaster.Business
 
         public void Shuffle()
         {
-            Cards = new Queue<ICard>(_deckShuffler.Shuffle(Cards));
+            Cards = new Queue<ICard>(_deckShuffler.Shuffle(Cards.ToList()));
         }
 
         #endregion

@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+using CardMaster.Business.CardRules;
 
 namespace CardMaster.Business.Interfaces
 {
     public interface IGameSettings
     {
-        List<ICardPlayer> Players { get; }
         CardDeck CardDeck { get; }
         int NoOfRounds { get; }
+        void DescreaseRoundCount();
+        IWinningCardRule WinningCardRule { get; }
     }
 }

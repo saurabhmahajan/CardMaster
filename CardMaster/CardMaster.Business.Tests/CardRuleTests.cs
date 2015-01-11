@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CardMaster.Business.CardRules;
 using CardMaster.Business.Enums;
 using CardMaster.Business.Interfaces;
 using FluentAssertions;
@@ -30,8 +31,8 @@ namespace CardMaster.Business.Tests
             };
             
             //Act
-            CardRule cardRule = new CardRule(cardSuiteByPriority);
-            ICard winningCard = cardRule.GetWinningCard(cards);
+            SuitePriorityCardRule suitePriorityCardRule = new SuitePriorityCardRule(cardSuiteByPriority);
+            ICard winningCard = suitePriorityCardRule.GetWinningCard(cards);
 
             //Assert
             winningCard.Suite.Should().Be(CardSuite.Diamond);
@@ -59,8 +60,8 @@ namespace CardMaster.Business.Tests
             };
 
             //Act
-            CardRule cardRule = new CardRule(cardSuiteByPriority);
-            ICard winningCard = cardRule.GetWinningCard(cards);
+            SuitePriorityCardRule suitePriorityCardRule = new SuitePriorityCardRule(cardSuiteByPriority);
+            ICard winningCard = suitePriorityCardRule.GetWinningCard(cards);
 
             //Assert
             winningCard.Suite.Should().Be(CardSuite.Diamond);
@@ -88,8 +89,8 @@ namespace CardMaster.Business.Tests
             };
 
             //Act
-            CardRule cardRule = new CardRule(cardSuiteByPriority);
-            ICard winningCard = cardRule.GetWinningCard(cards);
+            SuitePriorityCardRule suitePriorityCardRule = new SuitePriorityCardRule(cardSuiteByPriority);
+            ICard winningCard = suitePriorityCardRule.GetWinningCard(cards);
 
             //Assert
             winningCard.Suite.Should().Be(CardSuite.Heart);
@@ -117,8 +118,8 @@ namespace CardMaster.Business.Tests
             };
 
             //Act
-            CardRule cardRule = new CardRule(cardSuiteByPriority);
-            ICard winningCard = cardRule.GetWinningCard(cards);
+            SuitePriorityCardRule suitePriorityCardRule = new SuitePriorityCardRule(cardSuiteByPriority);
+            ICard winningCard = suitePriorityCardRule.GetWinningCard(cards);
 
             //Assert
             winningCard.Suite.Should().Be(CardSuite.Club);
@@ -146,8 +147,8 @@ namespace CardMaster.Business.Tests
             };
 
             //Act
-            CardRule cardRule = new CardRule(cardSuiteByPriority);
-            ICard winningCard = cardRule.GetWinningCard(cards);
+            SuitePriorityCardRule suitePriorityCardRule = new SuitePriorityCardRule(cardSuiteByPriority);
+            ICard winningCard = suitePriorityCardRule.GetWinningCard(cards);
 
             //Assert
             winningCard.Suite.Should().Be(CardSuite.Spade);
